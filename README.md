@@ -10,3 +10,5 @@ tavallista tekstiä, jossa **lihavoituja** ja *kursivoituja* osuuksia
 
 
 lisätään muutos
+
+lisätään vielä kerran muutos, kun nyt harjoitellaan epäsynkroonista tilannetta
