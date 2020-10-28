@@ -1,0 +1,113 @@
+commit bff66e400be6a9dbdb8203b2a441b054ad87e2b0
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Wed Oct 28 10:29:05 2020 +0200
+
+    poistettu file1 ja uudelleennimetty file2 tiedostoksi file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c1e7a6ef18cb1ef2062af00e6da32f22e2aedc54
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:43:50 2020 +0200
+
+    luotu hakemisto tiedostoja ja sinne file1, file2 ja file3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 02a9e6d76e6d80166a4944625ab8532da7e0485e
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:34:28 2020 +0200
+
+    eka.txt ja kolmas.txt muokattu
+
+ eka.txt.txt | 48 +-----------------------------------------------
+ kolmas.txt  |  5 ++++-
+ 2 files changed, 5 insertions(+), 48 deletions(-)
+
+commit cd0f73ee6cbb403197e9b5bd41d5a3093a6cec26
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:32:09 2020 +0200
+
+    tiedosto.txt uudelleen nimetty eka.txt
+
+ tiedosto.txt => eka.txt.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8705f5bbee409413ad7d0391ee9b04dc00690a00
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:29:19 2020 +0200
+
+    poistettu tiedosto toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 03582bec95ceb837039e6ad2b696f7cf4b646fc7
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:26:07 2020 +0200
+
+    poistettu osa tiedosto.txt tekstistä ja lisätty hieman uutta tekstiä
+
+ tiedosto.txt | 156 +----------------------------------------------------------
+ 1 file changed, 1 insertion(+), 155 deletions(-)
+
+commit 280ae37e0b0b490b22cf5c69003f75795992d7eb
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:24:28 2020 +0200
+
+    kopioitu paljon tekstiä tiedosto.txt
+
+ tiedosto.txt | 212 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 211 insertions(+), 1 deletion(-)
+
+commit 34e550951d174defe95a6a43f4bbd2a021c0830c
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:20:22 2020 +0200
+
+    luotu stuff-hakemisto ja sinne uusi.txt
+
+ stuff/uusi.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1a87d4bb4646fa2d1c5deed647a3960a84dbb606
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:18:29 2020 +0200
+
+    muutettu toinen.txt ja kolmas.txt sisältöä
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 8943d6714b8a394787b7e89c7c7b849b8a5a2eec
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:17:06 2020 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit bc90827d51cc8819045ad49296e7274e31868d8e
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:13:34 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 0a2a789a125d4d8eb3c709bae8d9d8bab056407c
+Author: akuivan <akuivan@users.noreply.github.com>
+Date:   Tue Oct 27 11:11:55 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
