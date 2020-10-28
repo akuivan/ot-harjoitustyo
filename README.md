@@ -7,3 +7,6 @@ tavallista tekstiä, jossa **lihavoituja** ja *kursivoituja* osuuksia
 [gitlog.txt](https://github.com/akuivan/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/akuivan/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+
+lisätään muutos
