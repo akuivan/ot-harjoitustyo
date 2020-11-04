@@ -51,5 +51,6 @@ public class MaksukorttiTest {
     @Test
     public void rahatRiitti() {
         assertTrue(kortti.otaRahaa(5));
+        assertFalse(kortti.otaRahaa(500));
     }
 }
