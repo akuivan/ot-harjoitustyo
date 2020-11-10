@@ -8,9 +8,9 @@ lyhyessä ajassa.
 
 ### Perusversion tarjoama toiminnallisuus
 
-##### Päävalikossa
+#### Päävalikossa
 - käyttäjä voi aloittaa pelin
-  - ja halutessaan palata takaisin päävalikkoon
+  - ja halutessaan palata sieltä takaisin päävalikkoon
 - käyttäjä voi sulkea pelin
 
 ### Jatkokehitysideoita 
