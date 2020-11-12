@@ -15,7 +15,7 @@ public class Card extends Button {
     public Card(Image front) throws FileNotFoundException {
         this.cardIsFlipped = false;
         this.front = front;
-        this.back = new Image(new FileInputStream(""));
+        this.back = new Image(getClass().getClassLoader().getResourceAsStream("basket.png"));
         setPicture(this.back);
     }
 
