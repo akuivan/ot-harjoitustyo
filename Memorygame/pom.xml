@@ -24,7 +24,13 @@
             <version>12.0.2</version>
         </dependency>
     </dependencies>
-    <build>
+    <build>  
+        <!--this resource is for fetching images for cards-->
+        <resources>
+            <resource>
+                <directory>src/images</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.openjfx</groupId>
