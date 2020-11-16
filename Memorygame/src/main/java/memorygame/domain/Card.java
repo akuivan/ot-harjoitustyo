@@ -27,7 +27,7 @@ public class Card extends Button {
         this.cardIsFlipped = cardIsFlipped;
     }
 
-    public Image getBack() {
+    public Image getBackImage() {
         return back;
     }
 
@@ -41,10 +41,11 @@ public class Card extends Button {
     public void turnCard() {
         if (this.cardIsFlipped) {
             setCardIsFlipped(false);
-            setPicture(this.front);
+            setPicture(this.back);
+
         } else {
             setCardIsFlipped(true);
-            setPicture(this.back);
+            setPicture(this.front);
         }
     }
 

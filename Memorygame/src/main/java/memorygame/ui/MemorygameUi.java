@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+import memorygame.domain.Board;
 import memorygame.domain.Card;
 
 public class MemorygameUi extends Application {
@@ -23,8 +23,7 @@ public class MemorygameUi extends Application {
     static Card[][] deck;
     static ArrayList<Image> pictureDeck;
     static Image[] pictures;
-    static int flippedCards;
-    static int foundPairs;
+    static Board board;
 
     public static void main(String[] args) {
         launch(args);
@@ -58,8 +57,7 @@ public class MemorygameUi extends Application {
     }
 
     public void initializeGame() throws FileNotFoundException {
-        resetFoundPairs();
-        resetFlippedCards();
+        this.board = new Board();
         initializePictures();
         initializeCardDeck(this.setting);
     }
@@ -99,14 +97,6 @@ public class MemorygameUi extends Application {
                 indexOfPictureDeck++;
             }
         }
-    }
-
-    public void resetFoundPairs() {
-        this.foundPairs = 0;
-    }
-
-    public void resetFlippedCards() {
-        this.flippedCards = 0;
     }
 
 }
