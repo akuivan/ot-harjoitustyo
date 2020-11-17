@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -20,9 +21,10 @@ public class MemorygameUi extends Application {
 
     private static EventHandler<MouseEvent> handler;
     static GridPane setting;
-    static Card[][] deck;
     static ArrayList<Image> pictureDeck;
     static Image[] pictures;
+    static Image back;
+    static Button[][] buttons;
     static Board board;
 
     public static void main(String[] args) {
@@ -57,7 +59,7 @@ public class MemorygameUi extends Application {
     }
 
     public void initializeGame() throws FileNotFoundException {
-        this.board = new Board();
+        createBoard();
         initializePictures();
         initializeCardDeck(this.setting);
     }
@@ -66,7 +68,18 @@ public class MemorygameUi extends Application {
         return handler;
     }
 
+    public void createBoard() {
+        this.board = new Board();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                board.getDeck()[i][j] = new Card(i, j);
+            }
+        }
+    }
+
     public void initializePictures() {
+        this.back = new Image(getClass().getClassLoader().getResourceAsStream("basket.png"));
+
         this.pictures = new Image[6];
         this.pictures[0] = new Image(getClass().getClassLoader().getResourceAsStream("apple.png"));
         this.pictures[1] = new Image(getClass().getClassLoader().getResourceAsStream("grape.png"));
@@ -81,22 +94,40 @@ public class MemorygameUi extends Application {
             this.pictureDeck.add(this.pictures[i]);
             this.pictureDeck.add(this.pictures[i]);
         }
-//      Shuffle cards
+//      Shuffle cards' images
         Collections.shuffle(pictureDeck);
-    }
 
-    public void initializeCardDeck(GridPane setting) throws FileNotFoundException {
-        this.deck = new Card[4][3]; // deck of 12 cards
-        int indexOfPictureDeck = 0;
+//      Assign an image to a card
+        int pictureDeckIndex = 0;
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                this.deck[i][j] = new Card(this.pictureDeck.get(indexOfPictureDeck));
-                this.deck[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, gameController());
-                setting.add(this.deck[i][j], i, j);
-                indexOfPictureDeck++;
+                this.board.getCard(i, j).setImage(pictureDeck.get(pictureDeckIndex).toString());
+                pictureDeckIndex++;
+
+            }
+        }
+
+    }
+
+    public void initializeCardDeck(GridPane setting) throws FileNotFoundException {
+//      ui: draw gameboard
+        this.buttons = new Button[4][3]; // deck of 12 cards
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                this.buttons[i][j] = new Button();
+                this.buttons[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, gameController());
+                setBackPicture(this.back, buttons[i][j]);
+                setting.add(buttons[i][j], i, j);
             }
         }
     }
 
+    public void setBackPicture(Image picture, Button button) {
+        ImageView view = new ImageView(picture);
+        view.setFitHeight(20);
+        view.setFitWidth(20);
+        button.setGraphic(view);
+    }
 }

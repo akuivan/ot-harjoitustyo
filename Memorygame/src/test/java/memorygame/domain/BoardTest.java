@@ -22,18 +22,27 @@ public class BoardTest {
     }
 
     @Test
-    public void resetFoundPairsResetsValueToZero() {
-        gameboard.increaseFoundPairs();
-        gameboard.increaseFoundPairs();
-        gameboard.resetFoundPairs();
+    public void resetFlippedCardsResetsValueToZero() {
+        gameboard.increaseFlippedCards();
+        gameboard.increaseFlippedCards();
+        gameboard.resetFlippedCards();
 
-        assertTrue(0 == gameboard.getFoundPairs());
+        assertTrue(0 == gameboard.getFlippedCards());
     }
+
     @Test
     public void increaseFlippedCardsIncreasesValueByOne() {
         gameboard.increaseFlippedCards();
         gameboard.increaseFlippedCards();
         assertTrue(2 == gameboard.getFlippedCards());
     }
-    
+
+    @Test
+    public void getCardReturnsCorrectCard() {
+        gameboard.getDeck()[0][0] = new Card(0, 0);
+
+        assertTrue(gameboard.getDeck()[0][0] == gameboard.getCard(0, 0));
+
+    }
+
 }
