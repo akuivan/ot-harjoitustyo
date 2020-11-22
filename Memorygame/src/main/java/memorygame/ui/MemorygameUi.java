@@ -34,8 +34,13 @@ public class MemorygameUi extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.handler = new Controller();
+        GridPane menuButtons = new GridPane();
         Button startGame = new Button("Aloita peli");
-        Scene menu = new Scene(startGame);
+        Button quitGame = new Button("Sulje peli");
+        menuButtons.add(startGame, 0, 0);
+        menuButtons.add(quitGame, 0, 1);
+
+        Scene menu = new Scene(menuButtons);
         Button goToMenu = new Button("Palaa päävalikkoon");
 
         startGame.setOnAction((event) -> {
@@ -52,6 +57,10 @@ public class MemorygameUi extends Application {
 
         goToMenu.setOnAction((event) -> {
             primaryStage.setScene(menu);
+        });
+
+        quitGame.setOnAction((event) -> {
+            primaryStage.close();
         });
 
         primaryStage.setScene(menu);
