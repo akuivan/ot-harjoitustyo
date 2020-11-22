@@ -47,6 +47,7 @@
                 <configuration>
                     <excludes>
                         <exclude>memorygame/ui/**/*</exclude>
+                        <exclude>memorygame/Main*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
