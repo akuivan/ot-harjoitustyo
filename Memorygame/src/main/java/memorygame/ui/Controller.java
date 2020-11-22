@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import memorygame.domain.Card;
 import static memorygame.ui.MemorygameUi.board;
@@ -22,13 +23,20 @@ public class Controller implements EventHandler<MouseEvent> {
 //      fetch the card that matches the button 
         Card currentCard = MemorygameUi.board.getCard(getButtonRow(currentButton), getButtonColumn(currentButton));
 
-        if (MemorygameUi.board.getFlippedCards() == 2) { //  handle second card
+        if (currentCard.getCardIsFlipped() == true //      handle same card
+                & currentCard == MemorygameUi.board.getPreviouscard()) {
+            flipTheSameCardOver(currentCard, currentButton);
+        } else if (MemorygameUi.board.getFlippedCards() == 2) { //  handle second card
             flipCard(currentCard, currentButton);
             MemorygameUi.board.resetFlippedCards();
-            //handle matches etc.
-            //            
-            //            
-        } else if (currentCard.getCardIsFlipped() == false) { // handle first card
+            // if cards match
+            if (currentCard.getImage().equals(MemorygameUi.board.getPreviouscard().getImage())) {
+                removeMatchingCards(currentButton, previousButton);
+                // otherwise
+            } else {
+                flipBothCardsOver(currentCard, MemorygameUi.board.getPreviouscard(), currentButton, previousButton);
+            }
+        } else if (currentCard.getCardIsFlipped() == false) { // handle first card    
             flipCard(currentCard, currentButton);
             MemorygameUi.board.setPreviouscard(currentCard);
             previousButton = currentButton;
@@ -45,6 +53,48 @@ public class Controller implements EventHandler<MouseEvent> {
             Image image = fetchImage(card.getImage());
             setPicture(image, button);
         }
+    }
+
+    public void flipTheSameCardOver(Card current, Button button) {
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.7));
+        pause.setOnFinished(e -> {
+            flipCard(current, button);
+            MemorygameUi.board.resetFlippedCards();
+            // during pause other cards cannot be flipped
+            button.getParent().setDisable(false);
+        });
+        button.getParent().setDisable(true);
+        pause.play();
+    }
+
+    public void removeMatchingCards(Button currentButton, Button previousButton) {
+        MemorygameUi.board.increaseFoundPairs();
+        FadeTransition ft1 = new FadeTransition(Duration.seconds(0.7), currentButton);
+        FadeTransition ft2 = new FadeTransition(Duration.seconds(0.7), previousButton);
+        ft1.setToValue(0);
+        ft1.play();
+        ft2.setToValue(0);
+        ft2.play();
+
+        if (MemorygameUi.board.getFoundPairs() == 6) {
+            Text text = new Text();
+            text.setText("Peli päättyi!");
+            MemorygameUi.setting.add(text, 6, 1);
+        }
+    }
+
+    public void flipBothCardsOver(Card currentCard, Card previousCard, Button currentButton, Button previousButton) {
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.7));
+        pause.setOnFinished(e -> {
+            flipCard(currentCard, currentButton);
+            flipCard(previousCard, previousButton);
+
+            // during pause other cards cannot be flipped
+            currentButton.getParent().setDisable(false);
+        });
+        currentButton.getParent().setDisable(true);
+        pause.play();
+
     }
 
     public void setPicture(Image picture, Button button) {
