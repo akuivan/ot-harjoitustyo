@@ -45,4 +45,17 @@ public class BoardTest {
 
     }
 
+    @Test
+    public void getFoundPairsReturnCorrectValue() {
+        assertTrue(0 == gameboard.getFoundPairs());
+    }
+
+    @Test
+    public void increaseFoundPairsIncreasesValueByOne() {
+        gameboard.increaseFoundPairs();
+        gameboard.increaseFoundPairs();
+        gameboard.increaseFoundPairs();
+
+        assertTrue(3 == gameboard.getFoundPairs());
+    }
 }
