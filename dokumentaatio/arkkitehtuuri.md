@@ -1,1 +1,1 @@
-![Luokkakaavio](/dokumentaatio/kuvat/luokkakaavio.jpg)
+![Luokkakaavio](/dokumentaatio/kuvat/luokkakaavio.JPG)
