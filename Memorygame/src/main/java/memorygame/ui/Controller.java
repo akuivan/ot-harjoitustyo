@@ -77,9 +77,17 @@ public class Controller implements EventHandler<MouseEvent> {
         ft2.play();
 
         if (MemorygameUi.board.getFoundPairs() == 6) {
+            MemorygameUi.timer.cancel();
+            Button saveScore = new Button("Tallenna ennätys");
             Text text = new Text();
             text.setText("Peli päättyi!");
-            MemorygameUi.setting.add(text, 6, 1);
+            MemorygameUi.setting.add(text, 6, 2);
+            MemorygameUi.setting.add(saveScore, 6, 3);
+
+            saveScore.setOnAction((event) -> {
+                // save to database
+                // and preferably return to menu
+            });
         }
     }
 

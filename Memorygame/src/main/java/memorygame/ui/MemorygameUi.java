@@ -3,12 +3,16 @@ package memorygame.ui;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +30,8 @@ public class MemorygameUi extends Application {
     static Image back;
     static Button[][] buttons;
     static Board board;
+    static int timeInSeconds;
+    static Timer timer;
 
     public static void main(String[] args) {
         launch(args);
@@ -36,27 +42,57 @@ public class MemorygameUi extends Application {
         this.handler = new Controller();
         GridPane menuButtons = new GridPane();
         Button startGame = new Button("Aloita peli");
+        Button viewLeaderboard = new Button("Ennätykset");
         Button quitGame = new Button("Sulje peli");
         menuButtons.add(startGame, 0, 0);
-        menuButtons.add(quitGame, 0, 1);
+        menuButtons.add(viewLeaderboard, 0, 1);
+        menuButtons.add(quitGame, 0, 2);
 
         Scene menu = new Scene(menuButtons);
         Button goToMenu = new Button("Palaa päävalikkoon");
 
+        GridPane scores = new GridPane();
+        scores.add(goToMenu, 0, 0);
+        Scene leaderboard = new Scene(scores);
+
         startGame.setOnAction((event) -> {
             try {
+                Label clock = new Label();
+                this.timeInSeconds = 0;
+                this.timer = new Timer();
+                timer.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                clock.setText(Integer.toString(timeInSeconds++)
+                                        + " sekuntia");
+                            }
+                        });
+                    }
+                }, 0, 1000);
                 this.setting = new GridPane();
+                this.setting.setMinSize(200, 110);
                 this.setting.addColumn(6, goToMenu);
+                this.setting.add(clock, 6, 1);
                 initializeGame();
                 Scene game = new Scene(this.setting);
                 primaryStage.setScene(game);
+
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemorygameUi.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
 
         goToMenu.setOnAction((event) -> {
+            // cancel timer from previous game
+            timer.cancel();
             primaryStage.setScene(menu);
+        });
+
+        viewLeaderboard.setOnAction((event) -> {
+            primaryStage.setScene(leaderboard);
         });
 
         quitGame.setOnAction((event) -> {
@@ -116,7 +152,6 @@ public class MemorygameUi extends Application {
 
             }
         }
-
     }
 
     public void initializeCardDeck(GridPane setting) throws FileNotFoundException {
@@ -139,4 +174,5 @@ public class MemorygameUi extends Application {
         view.setFitWidth(20);
         button.setGraphic(view);
     }
+
 }
