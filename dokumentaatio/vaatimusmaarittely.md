@@ -12,7 +12,7 @@ lyhyessä ajassa.
 - käyttäjä voi aloittaa pelin **tehty**
   - ja halutessaan palata sieltä takaisin päävalikkoon **tehty**
   - ja pelin aikana seurata sekuntiajastinta, joka mittaa pelaajan aikaennätystä **tehty**
-  - käyttäjä voi tallentaa aikaennätyksensä ennätysten listaan valitsemallaan nicknamella.
+  - käyttäjä voi tallentaa aikaennätyksensä ennätysten listaan
 - käyttäjä voi sulkea pelin **tehty**
 - käyttäjä voi tarkastella aikaennätyksiä listasta
   - ja palata sieltä takaisin päävalikkoon
