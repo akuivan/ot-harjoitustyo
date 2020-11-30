@@ -32,6 +32,8 @@ public class MemorygameUi extends Application {
     static Board board;
     static int timeInSeconds;
     static Timer timer;
+    static Stage scoreStage;
+    static Stage gameStage;
 
     public static void main(String[] args) {
         launch(args);
@@ -50,10 +52,6 @@ public class MemorygameUi extends Application {
 
         Scene menu = new Scene(menuButtons);
         Button goToMenu = new Button("Palaa päävalikkoon");
-
-        GridPane scores = new GridPane();
-        scores.add(goToMenu, 0, 0);
-        Scene leaderboard = new Scene(scores);
 
         startGame.setOnAction((event) -> {
             try {
@@ -78,7 +76,10 @@ public class MemorygameUi extends Application {
                 this.setting.add(clock, 6, 1);
                 initializeGame();
                 Scene game = new Scene(this.setting);
-                primaryStage.setScene(game);
+                this.gameStage = new Stage();
+                gameStage.setScene(game);
+                gameStage.show();
+                primaryStage.hide();
 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MemorygameUi.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,13 +87,33 @@ public class MemorygameUi extends Application {
         });
 
         goToMenu.setOnAction((event) -> {
-            // cancel timer from previous game
-            timer.cancel();
+            // cancel timer from previous game and hide gamewindow
+            if (timer != null) {
+                timer.cancel();
+                gameStage.hide();
+            }
+            // hide leaderboard window if open
+            if (scoreStage != null) {
+                scoreStage.hide();
+            }
             primaryStage.setScene(menu);
+            primaryStage.show();
         });
 
         viewLeaderboard.setOnAction((event) -> {
-            primaryStage.setScene(leaderboard);
+            // create separate thread for scores
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    GridPane scores = new GridPane();
+                    scores.add(goToMenu, 0, 0);
+                    Scene leaderboard = new Scene(scores);
+                    scoreStage = new Stage();
+                    scoreStage.setScene(leaderboard);
+                    scoreStage.show();
+                    primaryStage.hide();
+                }
+            });
         });
 
         quitGame.setOnAction((event) -> {

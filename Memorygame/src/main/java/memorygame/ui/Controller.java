@@ -3,6 +3,7 @@ package memorygame.ui;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -77,16 +78,17 @@ public class Controller implements EventHandler<MouseEvent> {
         ft2.play();
 
         if (MemorygameUi.board.getFoundPairs() == 6) {
+//          stop timer in game
             MemorygameUi.timer.cancel();
             Button saveScore = new Button("Tallenna ennätys");
             Text text = new Text();
             text.setText("Peli päättyi!");
             MemorygameUi.setting.add(text, 6, 2);
             MemorygameUi.setting.add(saveScore, 6, 3);
-
             saveScore.setOnAction((event) -> {
                 // save to database
-                // and preferably return to menu
+                System.out.println("Toivon mukaan tallentaa ennätyksen" +
+                        " ensi viikon versiossa");
             });
         }
     }
