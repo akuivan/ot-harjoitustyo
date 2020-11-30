@@ -9,7 +9,7 @@ Käyttöliittymä sisältää kolme erillistä näkymää:
 - ennätykset
 
 Jokainen näistä on toteutettu omana Scene-oliona, jolla kullakin on myös oma stagensa. Näkymistä yksi kerrallaan on näkyvänä. Käyttöliittymä on rakennettu ohjelmallisesti luokissa memorygame.ui.MemorygameUi ja memorygame.ui.Controller. 
-- MemorygameUi -luokka piirtää päävalikon, varsinaisen pelilaudan ja ennätykset -näykmän
+- MemorygameUi -luokka piirtää päävalikon, varsinaisen pelilaudan ja ennätykset -näkymän
 - Controller -luokka renderöi pelin edetessä pelinäkymää sen perusteella, mitä kortteja käyttäjä klikkaa.
 
 Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta, se kutsuu sopivin parametrein sovelluslogiikan toteuttavan olion Board ja Card metodeja.
