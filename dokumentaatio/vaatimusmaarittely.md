@@ -15,7 +15,7 @@ lyhyessä ajassa.
   - käyttäjä voi tallentaa aikaennätyksensä ennätysten listaan
 - käyttäjä voi sulkea pelin **tehty**
 - käyttäjä voi tarkastella aikaennätyksiä listasta
-  - ja palata sieltä takaisin päävalikkoon
+  - ja palata sieltä takaisin päävalikkoon **tehty**
 
 ### Jatkokehitysideoita 
 Perusversion jälkeen sovellusta täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla
