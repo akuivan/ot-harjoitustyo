@@ -26,4 +26,16 @@ public class CardTest {
         assertTrue(0 == card.getRow());
     }
 
+    @Test
+    public void constructorSetsCardIsflippedValueToFalse() {
+        assertTrue(false == card.getCardIsFlipped());
+    }
+
+    @Test
+    public void setCardIsflippedInsertsCorrectValue() {
+        card.setCardIsFlipped(true);
+        assertTrue(true == card.getCardIsFlipped());
+        card.setCardIsFlipped(false);
+        assertTrue(false == card.getCardIsFlipped());
+    }
 }
