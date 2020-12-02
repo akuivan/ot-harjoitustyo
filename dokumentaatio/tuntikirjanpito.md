@@ -10,6 +10,9 @@
 | 17.11 | 3 | käyttöliittymän ja graafisen- eriyttäminen, testien päivittäminen ja kortin kääntämis-ominaisuuden luominen |
 | 22.11 | 4 | korttien kääntämiseen liittyvien ominaisuuksien viimeistely, päävalikon ja testien päivittäminen sekä Checkstylen käyttöönotto |
 | 23.11 | 0,33 | luokkakaavio |
+| 27.11 | 3 | lisää ajastin pelinäkymään |
+| 30.11 | 2 | testien päivitys ja päävalikon "Ennätykset"-painikkeen korjaaminen |
+| 2.12 | 0,33 | sekvenssikaavio ja github release |
 
 
  
