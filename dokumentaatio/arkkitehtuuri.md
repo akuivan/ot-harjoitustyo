@@ -26,7 +26,7 @@ Jokaiseen korttiin liittyy yksi pelilauta, ja yksittäisellä pelilaudalla voi o
 ![Luokkakaavio](/dokumentaatio/kuvat/luokkakaavio.JPG) 
 
 ### Päätoiminnallisuudet
-Kuvataan soveluuksen toimintalogiikkaa muutaman pätoiminnallisuuden osalta sekvenssikaaviona.
+Kuvataan sovelluksen toimintalogiikkaa muutaman päätoiminnallisuuden osalta sekvenssikaaviona.
 
 #### Kortin kääntäminen 
 Kun pelinäkymässä käyttäjä klikkaa korttia, eli Button -tyyppistä painiketta, eteneee sovelluksen konrtolli seuraavasti:
