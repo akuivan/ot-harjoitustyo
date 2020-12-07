@@ -13,9 +13,16 @@ import memorygame.ui.MemorygameUi;
 
 public class Database {
 
+    /**
+     * This method is called in MemorygameUi and it creates a Database object.
+     */
     public Database() {
     }
 
+    /**
+     * This method is called in MemorygameUi and it creates a database called
+     * Score if it doesn't already exist.
+     */
     public void createDatabase() {
         try {
             Connection conn = createConnection();
@@ -33,6 +40,15 @@ public class Database {
         }
     }
 
+    /**
+     * This method is called in Controller and it saves player's timescore to
+     * database Score.
+     *
+     * @param score is a value which represents timescore, aka how long it took
+     * in seconds for a player to win the game.
+     * @throws SQLException provides information on database access error or 
+     * other errors.
+     */
     public void saveScoreToDatabase(int score) throws SQLException {
         Connection conn = createConnection();
         PreparedStatement statement
@@ -47,9 +63,15 @@ public class Database {
         conn = null;
     }
 
+    /**
+     * This method is called in MemorygameUi and it displays top 3 timescores
+     * from database Score inside a VBox.
+     *
+     * @param scores is a graphic component where top 3 timescores from database
+     * Score are set to display
+     */
     public void getScoresFromDatabase(VBox scores) {
         int i = 1;
-
         try {
             Connection conn = createConnection();
             PreparedStatement statement
@@ -67,12 +89,16 @@ public class Database {
             conn.close();
             statement = null;
             conn = null;
-
         } catch (SQLException ex) {
             Logger.getLogger(MemorygameUi.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    /**
+     * This method creates a connection to database Score.
+     * 
+     * @return Connection object
+     */
     public Connection createConnection() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:./scores",

@@ -13,6 +13,15 @@ public class Card {
     private int column;
     private boolean cardIsFlipped;
 
+    /**
+     * Create Card object.
+     *
+     * @param row is a value inserted in Memorygame.Ui. It represents card's
+     * position inside 2d array
+     *
+     * @param column is a value inserted in Memorygame.Ui. It represents card's
+     * position inside 2d array
+     */
     public Card(int row, int column) {
         this.row = row;
         this.column = column;
