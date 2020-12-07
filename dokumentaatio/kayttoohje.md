@@ -11,8 +11,8 @@ Sovellus käynnistyy päävalikkko -näkymään:<br><br>
 
 Pelin aloitus onnistuu klikkaamalla näppäintä "Aloita peli"
 
-## Pelin sulkeminen
-Pelin sulkeminen tapahtuu päävalikon "Sulje peli" -näppäimestä
+## Sovelluksen sulkeminen
+Sovelluksen sulkeminen tapahtuu päävalikon "Sulje peli" -näppäimestä
 
 ## Ennätyksen tallentaminen
 Ennätyksen tallentaminen onnistuu pelin päätyttyä ruudulle ilmestynyttä "Tallenna ennätys" -näppäintä painamalla. <br><br>
