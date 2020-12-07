@@ -10,6 +10,7 @@ Sovelluksen avulla käyttäjä voi pelata muistipeliä, jossa ideana on löytä�
 [arkkitehtuurikuvaus](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)<br><br>
 
 ## Releaset
+[(uusin) 2 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)<br><br>
 [1 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko5)<br>
 
 ## Komentorivitoiminnot
