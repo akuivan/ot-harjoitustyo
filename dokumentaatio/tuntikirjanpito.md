@@ -13,6 +13,10 @@
 | 27.11 | 3 | lisää ajastin pelinäkymään |
 | 30.11 | 2 | testien päivitys ja päävalikon "Ennätykset"-painikkeen korjaaminen |
 | 2.12 | 0,33 | sekvenssikaavio ja github release |
+| 7.12 | 4 | lisää tietokanta ja siihen liittyvät toiminnallisuudet (ennätyksen lisääminen ja ennätyksien tarkastelu), testien päivitys |
+|  | 2 | JavaDocin käyttöönotto ja dokumentointi + muu dokumentointi (kuten vaatimusmäärittely, käyttöohjeet) |
+|yht  | 30,66 |
+
 
 
  
