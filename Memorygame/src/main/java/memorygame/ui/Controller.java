@@ -1,5 +1,11 @@
 package memorygame.ui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
@@ -10,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import memorygame.db.Database;
 import memorygame.domain.Card;
 import static memorygame.ui.MemorygameUi.board;
 
@@ -46,10 +53,10 @@ public class Controller implements EventHandler<MouseEvent> {
     }
 
     public void flipCard(Card card, Button button) {
-        if (card.getCardIsFlipped()) { //if card is frontside up
+        if (card.getCardIsFlipped()) { //if card is frontside up/turned
             card.setCardIsFlipped(false);
             setPicture(MemorygameUi.back, button);
-        } else { //if card is backside up
+        } else { //if card is backside up/unturned
             card.setCardIsFlipped(true);
             Image image = fetchImage(card.getImage());
             setPicture(image, button);
@@ -78,17 +85,28 @@ public class Controller implements EventHandler<MouseEvent> {
         ft2.play();
 
         if (MemorygameUi.board.getFoundPairs() == 6) {
-//          stop timer in game
+//          stop timer
             MemorygameUi.timer.cancel();
+//          and substract one second from variable timeInSeconds in order for
+//          score to be correct, because when timer is stopped, one extra
+//          second has managed to pass
+            MemorygameUi.timeInSeconds--;
+
             Button saveScore = new Button("Tallenna ennätys");
             Text text = new Text();
             text.setText("Peli päättyi!");
             MemorygameUi.setting.add(text, 6, 2);
             MemorygameUi.setting.add(saveScore, 6, 3);
+
             saveScore.setOnAction((event) -> {
-                // save to database
-                System.out.println("Toivon mukaan tallentaa ennätyksen" +
-                        " ensi viikon versiossa");
+                try {
+                    // save score to database
+                    new Database().saveScoreToDatabase(MemorygameUi.timeInSeconds);
+                    MemorygameUi.setting.add(new Text("Tallennettu!"), 2, 2);
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                }
             });
         }
     }

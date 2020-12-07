@@ -1,6 +1,11 @@
 package memorygame.ui;
 
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
@@ -10,6 +15,7 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,7 +23,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import memorygame.db.Database;
 import memorygame.domain.Board;
 import memorygame.domain.Card;
 
@@ -41,6 +50,9 @@ public class MemorygameUi extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+//      initialize database
+        new Database().createDatabase();
+
         this.handler = new Controller();
         GridPane menuButtons = new GridPane();
         Button startGame = new Button("Aloita peli");
@@ -49,12 +61,14 @@ public class MemorygameUi extends Application {
         menuButtons.add(startGame, 0, 0);
         menuButtons.add(viewLeaderboard, 0, 1);
         menuButtons.add(quitGame, 0, 2);
-
+        menuButtons.setAlignment(Pos.CENTER);
         Scene menu = new Scene(menuButtons);
+
         Button goToMenu = new Button("Palaa päävalikkoon");
 
         startGame.setOnAction((event) -> {
             try {
+//              Set timer and start it
                 Label clock = new Label();
                 this.timeInSeconds = 0;
                 this.timer = new Timer();
@@ -105,8 +119,11 @@ public class MemorygameUi extends Application {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    GridPane scores = new GridPane();
-                    scores.add(goToMenu, 0, 0);
+                    VBox scores = new VBox();
+                    scores.setAlignment(Pos.CENTER);
+                    scores.getChildren().add(new Text("Top 3 \n"));
+                    new Database().getScoresFromDatabase(scores);
+                    scores.getChildren().add(goToMenu);
                     Scene leaderboard = new Scene(scores);
                     scoreStage = new Stage();
                     scoreStage.setScene(leaderboard);
@@ -136,6 +153,7 @@ public class MemorygameUi extends Application {
 
     public void createBoard() {
         this.board = new Board();
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 board.getDeck()[i][j] = new Card(i, j);
@@ -144,6 +162,7 @@ public class MemorygameUi extends Application {
     }
 
     public void initializePictures() {
+//      Get images
         this.back = new Image(getClass().getClassLoader().getResourceAsStream("basket.png"));
 
         this.pictures = new Image[6];
@@ -170,13 +189,12 @@ public class MemorygameUi extends Application {
             for (int j = 0; j < 3; j++) {
                 this.board.getCard(i, j).setImage(pictureDeck.get(pictureDeckIndex).toString());
                 pictureDeckIndex++;
-
             }
         }
     }
 
     public void initializeCardDeck(GridPane setting) throws FileNotFoundException {
-//      ui: draw gameboard
+//      draw actual gameboard
         this.buttons = new Button[4][3]; // deck of 12 cards
 
         for (int i = 0; i < 4; i++) {

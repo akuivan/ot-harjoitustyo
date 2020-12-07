@@ -10,10 +10,14 @@ import static org.junit.Assert.*;
 public class BoardTest {
 
     Board gameboard;
+    Card card;
+    Card previous;
 
     @Before
     public void setUp() {
         gameboard = new Board();
+        previous = new Card(0, 0);
+        card = new Card(0, 1);
     }
 
     @Test
@@ -57,5 +61,13 @@ public class BoardTest {
         gameboard.increaseFoundPairs();
 
         assertTrue(3 == gameboard.getFoundPairs());
+    }
+
+    
+    @Test
+    public void getPreviousCardReturnsPrevious() {
+        gameboard.setPreviouscard(card);
+        gameboard.setPreviouscard(previous);
+        assertTrue(gameboard.getPreviouscard() == previous);
     }
 }

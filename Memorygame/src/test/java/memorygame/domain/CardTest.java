@@ -38,4 +38,11 @@ public class CardTest {
         card.setCardIsFlipped(false);
         assertTrue(false == card.getCardIsFlipped());
     }
+
+    @Test
+    public void setImageInsertsString() {
+        card.setImage("address to image");
+        assertEquals("address to image", card.getImage());
+    }
+
 }
