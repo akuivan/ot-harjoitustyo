@@ -1,5 +1,9 @@
 package memorygame.domain;
 
+/**
+ * Board class takes care of game logic along with Card class and
+ * keeps track of card objects.
+ */
 public class Board {
 
     private Card[][] deck;

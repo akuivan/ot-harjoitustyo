@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Card class takes care of game logic along with Board class.
+ */
 public class Card {
 
     private String image;

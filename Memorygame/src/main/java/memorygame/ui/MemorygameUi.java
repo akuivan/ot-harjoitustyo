@@ -29,7 +29,10 @@ import javafx.stage.Stage;
 import memorygame.db.Database;
 import memorygame.domain.Board;
 import memorygame.domain.Card;
-
+/**
+ * MemorygameUi class takes care of UI outside the actual game (main menu 
+ * and score's) by rendering view based on user's mouse clicks.
+ */
 public class MemorygameUi extends Application {
 
     private static EventHandler<MouseEvent> handler;

@@ -20,6 +20,10 @@ import memorygame.db.Database;
 import memorygame.domain.Card;
 import static memorygame.ui.MemorygameUi.board;
 
+/**
+ * Controller class takes care of game UI by rendering in-game view based on
+ * user's mouse clicks.
+ */
 public class Controller implements EventHandler<MouseEvent> {
 
     private Button previousButton;

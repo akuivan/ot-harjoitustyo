@@ -2,6 +2,9 @@ package memorygame;
 
 import memorygame.ui.MemorygameUi;
 
+/**
+ * This is main class where ui is launched.
+ */
 public class Main {
 
     /**

@@ -11,6 +11,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import memorygame.ui.MemorygameUi;
 
+/**
+ * Database class takes care of saving data to Scores.mv database.
+ */
 public class Database {
 
     /**
@@ -46,7 +49,7 @@ public class Database {
      *
      * @param score is a value which represents timescore, aka how long it took
      * in seconds for a player to win the game.
-     * @throws SQLException provides information on database access error or 
+     * @throws SQLException provides information on database access error or
      * other errors.
      */
     public void saveScoreToDatabase(int score) throws SQLException {
@@ -96,7 +99,7 @@ public class Database {
 
     /**
      * This method creates a connection to database Score.
-     * 
+     *
      * @return Connection object
      */
     public Connection createConnection() {
