@@ -1,11 +1,6 @@
 package memorygame.ui;
 
 import java.io.FileNotFoundException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
@@ -29,9 +24,10 @@ import javafx.stage.Stage;
 import memorygame.db.Database;
 import memorygame.domain.Board;
 import memorygame.domain.Card;
+
 /**
- * MemorygameUi class takes care of UI outside the actual game (main menu 
- * and score's) by rendering view based on user's mouse clicks.
+ * MemorygameUi class takes care of UI outside the actual game (main menu and
+ * score's) by rendering view based on user's mouse clicks.
  */
 public class MemorygameUi extends Application {
 
