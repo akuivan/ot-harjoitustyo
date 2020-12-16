@@ -1,6 +1,8 @@
 # Käyttöohje
+lataa tiedosto [Memorygame.jar](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)
 
-lataa tiedosto [Memorygame.jar](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)<br><br>
+## Konfiguraatio
+Ohjelmaa ei tarvitse erikseen konfiguroida, joten erillistä konfiguraatiotiedostoa ei tarvita. 
 
 ## Ohjelman käynnistäminen
 Ohjelma käynnistetään komennolla: **java -jar Memorygame.jar**
