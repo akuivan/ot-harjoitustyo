@@ -1,14 +1,14 @@
 # Memorygame
 
-Sovelluksen avulla käyttäjä voi pelata muistipeliä, jossa ideana on löytää korttiparit nurinpäin käännetyistä korteista mahdollisimman lyhyessä ajassa
-
+Sovelluksen avulla käyttäjä voi pelata muistipeliä, jossa ideana on löytää korttiparit nurinpäin käännetyistä korteista mahdollisimman lyhyessä ajassa.
 
 ## Dokumentaatio
 
-[käyttöohje](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) <br><br>
-[työaikakirjanpito](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md) <br><br>
-[vaatimusmäärittely](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) <br><br>
-[arkkitehtuurikuvaus](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)<br><br>
+[Käyttöohje](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) <br><br>
+[Vaatimusmäärittely](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) <br><br>
+[Arkkitehtuurikuvaus](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)<br><br>
+[Testausdokumentti](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md) <br><br>
+[Työaikakirjanpito](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
 [(uusin) 2 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)<br><br>
