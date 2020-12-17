@@ -11,7 +11,8 @@ Sovelluksen avulla käyttäjä voi pelata muistipeliä, jossa ideana on löytä�
 [Työaikakirjanpito](https://github.com/akuivan/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
-[(uusin) 2 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)<br><br>
+[loppupalautus](https://github.com/akuivan/ot-harjoitustyo/releases/tag/loppupalautus)<br><br>
+[2 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko6)<br><br>
 [1 release](https://github.com/akuivan/ot-harjoitustyo/releases/tag/viikko5)<br>
 
 ## Komentorivitoiminnot
