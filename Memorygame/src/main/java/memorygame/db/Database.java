@@ -24,7 +24,7 @@ public class Database {
 
     /**
      * This method is called in MemorygameUi and it creates a database called
-     * Score if it doesn't already exist.
+     * Scores if it doesn't already exist.
      */
     public void createDatabase() {
         try {
@@ -45,7 +45,7 @@ public class Database {
 
     /**
      * This method is called in Controller and it saves player's timescore to
-     * database Score.
+     * database Scores.
      *
      * @param score is a value which represents timescore, aka how long it took
      * in seconds for a player to win the game.
@@ -68,7 +68,7 @@ public class Database {
 
     /**
      * This method is called in MemorygameUi and it displays top 3 timescores
-     * from database Score inside a VBox.
+     * from database Scores inside a VBox.
      *
      * @param scores is a graphic component where top 3 timescores from database
      * Score are set to display
@@ -98,7 +98,7 @@ public class Database {
     }
 
     /**
-     * This method creates a connection to database Score.
+     * This method creates a connection to database Scores.
      *
      * @return Connection object
      */
