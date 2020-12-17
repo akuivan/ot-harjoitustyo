@@ -26,13 +26,21 @@ Jokaiseen korttiin liittyy yksi pelilauta, ja yksittäisellä pelilaudalla voi o
 ![Luokkakaavio](/dokumentaatio/kuvat/luokkakaavio.JPG) 
 
 ### Päätoiminnallisuudet
-Kuvataan sovelluksen toimintalogiikkaa muutaman päätoiminnallisuuden osalta sekvenssikaaviona.
+Kuvataan sovelluksen toimintalogiikkaa parin päätoiminnallisuuden osalta sekvenssikaaviona.
 
 #### Kortin kääntäminen 
-Kun pelinäkymässä käyttäjä klikkaa korttia, eli Button -tyyppistä painiketta, eteneee sovelluksen konrtolli seuraavasti:
-![avatunKääntöSekvenssi](/dokumentaatio/kuvat/avatunkortinkääntäminen.JPG)
+Kun pelinäkymässä käyttäjä klikkaa korttia, eli Button -tyyppistä painiketta, etenee sovelluksen kontrolli seuraavasti:
+![avatunKääntöSekvenssi](/dokumentaatio/kuvat/avatunkortinkaantaminen.JPG)
 
 Tapahtumankäsittelijä kutsuu sovelluslogiikan Card metodia [getCardIsFlipped](https://github.com/akuivan/ot-harjoitustyo/blob/144cb5f31c97fc0bc74ef9418f065c52f3e054d9/Memorygame/src/main/java/memorygame/domain/Card.java#L38). Jos kortti on käännetty, eli metodi palauttaa arvon true, seurauksena renderöityy pelinäkymässä kortin kuvaksi nurjan puolen kuva. Vaihtoehtoisesti jos metodi palauttaisi arvon false, kutsuttaisiin seuraavaksi metodia setCardIsFlipped(true) ja pelinäkymässä kortti renderöityisi avatuksi.
+
+#### Korttiparin löytäminen
+Kun käyttäjä on löytänyt korttiparin, eli klikannut Button -tyyppisiä painikkeita kaksi kertaa ja niitä vastaavien korttien kuvat ovat samat, eli Card -tyyppisten olioiden oliomuuttujat image ovat vastaavat, etenee sovelluksen kontrolli seuraavasti: <br><br>
+![parinLöytöSekvenssi](/dokumentaatio/kuvat/parienpoistaminen.JPG)
+
+Tapahtumankäsittelijä kutsuu sovelluslogiikan Board metodia [getFlippedCards](https://github.com/akuivan/ot-harjoitustyo/blob/master/Memorygame/src/main/java/memorygame/domain/Board.java#L73). Jos kahta korttia on klikattu, eli metodi palauttaa arvon 2, seurauksena kutsutaan Controller luokan metodia [flipCard](https://github.com/akuivan/ot-harjoitustyo/blob/master/Memorygame/src/main/java/memorygame/ui/Controller.java#L59), joka renderöi pelinäkymässä toiseksi klikatun kortin avatuksi, ja Board luokan metodia [resetFlippedCards](https://github.com/akuivan/ot-harjoitustyo/blob/master/Memorygame/src/main/java/memorygame/domain/Board.java#L69), joka nollaa käännettyjen korttien lkm:n. Tämän jälkeen vertaillaan, ovatko korttien kuvat samat. Mikäli ovat, kutsutaan Controller luokan metodia [removeMatchingCards](https://github.com/akuivan/ot-harjoitustyo/blob/master/Memorygame/src/main/java/memorygame/ui/Controller.java#L82), jolloin pelinäkymässä renderöityvät korttiparit pois pelilaudalta, ja kasvatetaan löydettyjen parien määrää kutsumalla Board luokan metodia [increaseFoundPairs](https://github.com/akuivan/ot-harjoitustyo/blob/master/Memorygame/src/main/java/memorygame/domain/Board.java#L93). 
+
+
 
 ## Tietojen pysyväistallennus
 Pakkauksen memorygame.db luokka Database huolehtii tietojen tallettamisesta tietokantaan Scores.mv, mikä luodaan sovelluksen käytön aikana samaan kansioon sovelluksen jar-tiedoston kanssa. Varsinainen sovelluslogiikka ei käytä ko. luokkaa suoraan.
